@@ -123,7 +123,7 @@ public class PlayerMovementUpdate : MonoBehaviour
             {
                 isDashing = true;
                 //FindObjectOfType<AudioManager>().Play("dash");
- 
+
                 currentDashTimer = StartDashTimer;
                 _rigidbody.velocity = Vector2.zero;
                 DashDirection = (int)horizontalMovement;
