@@ -6,50 +6,41 @@ namespace Boss
 {
     public class Projectile : MonoBehaviour
     {
-        [SerializeField] private Direction _direction;
-        private Vector3 dir;
-        
+        [SerializeField] private ProjectileData data;
+        private Vector3 _direction;
+        private float _damage, _speed, _lifetime;
+
         private void Start()
         {
-            dir = SetDirection();
-            StartCoroutine(Move(dir));
+            LoadData(data);
+            StartCoroutine(Move(_direction, _lifetime));
         }
 
-        Vector3 SetDirection()
+        private void LoadData(ProjectileData projectileData)
         {
-            switch (_direction)
-            {
-                case Direction.Up:
-                    return Vector3.up;
-                case Direction.Down:
-                    return Vector3.down;
-                case Direction.Left:
-                    return Vector3.left;
-                case Direction.Right:
-                    return Vector3.right;
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
+            _direction = projectileData.SetDirection();
+            _damage = projectileData.damage;
+            _speed = projectileData.speed;
+            _lifetime = projectileData.lifetime;
         }
         
-        IEnumerator Move(Vector3 direction)
+        private IEnumerator Move(Vector3 direction, float lifetime)
         {
-            var timer = 2.0f;
+            var timer = lifetime;
+            print(timer);
             while (timer > 0)
             {
-                transform.position += direction * (Time.deltaTime * 2);
+                transform.position += direction * (Time.deltaTime * _speed);
                 yield return new WaitForEndOfFrame();
+                print($"{timer:0}");
                 timer -= Time.deltaTime;
             }
         }
+
+        public void GiveDamage(float hp)
+        {
+            hp -= _damage;
+        }
     }
 
-    public enum Direction
-    {
-        Up,
-        Down,
-        Left,
-        Right
-    }
-    
 }
