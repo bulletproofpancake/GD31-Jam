@@ -311,7 +311,6 @@ GameObject:
   - component: {fileID: 1226547563}
   - component: {fileID: 1226547562}
   - component: {fileID: 1226547561}
-  - component: {fileID: 1226547560}
   - component: {fileID: 1226547559}
   m_Layer: 0
   m_Name: Boss
@@ -329,29 +328,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1226547558}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37d33cfd35c0446caeda17ea07cb098f, type: 3}
+  m_Script: {fileID: 11500000, guid: 155c05040b714af7a96b4808c1d09351, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skills:
-  - {fileID: 11400000, guid: 8ead7e1c948e5454d8be6a0bfd73ff03, type: 2}
-  - {fileID: 11400000, guid: 1be36a399ef6dee409567f599726bbd7, type: 2}
-  index: 0
---- !u!114 &1226547560
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1226547558}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a17233c5c3ccf4e4b9887b66676c0442, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skillLoader: {fileID: 1226547559}
-  healthMax: 100
-  damage: 20
-  _healthCurrent: 0
+  _direction: 2
 --- !u!65 &1226547561
 BoxCollider:
   m_ObjectHideFlags: 0
