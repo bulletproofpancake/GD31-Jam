@@ -8,7 +8,10 @@ namespace Boss
     {
 
         [SerializeField] private Direction direction;
-        public float damage, speed, lifetime;
+        [SerializeField] private float damage, speed, lifetime;
+        public float Damage => damage;
+        public float Speed => speed;
+        public float Lifetime => lifetime;
 
         public Vector3 SetDirection()
         {
