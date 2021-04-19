@@ -14,18 +14,18 @@ namespace Boss
         {
             StartCoroutine(SpawnCoroutine(prefab, spawnPositions, delayTime));
         }
-
-        public void Spawn(GameObject projectile,Transform spawnPosition)
+        
+        private void Spawn(GameObject projectile,Transform spawnPosition)
         {
             Instantiate(projectile, spawnPosition.position, Quaternion.identity);
         }
-
+        
         private IEnumerator SpawnCoroutine(GameObject projectile, Transform[] positions, float interval)
         {
             foreach (var position in positions)
             {
                 yield return new WaitForSeconds(interval);
-                Instantiate(projectile, position.position, Quaternion.identity);
+                Spawn(projectile, position);
             }
         }
     }
