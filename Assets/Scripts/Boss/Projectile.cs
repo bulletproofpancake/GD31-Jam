@@ -15,31 +15,58 @@ namespace Boss
         private void Start()
         {
             LoadData(data);
-            //StartCoroutine(Move(_direction, _lifetime));
+            StartCoroutine(Move(_direction, _lifetime, _speed));
         }
 
-        private void Update()
-        {
-            if (_lifetime > 0)
-            {
-                _isActive = true;
-                _lifetime -= Time.deltaTime;
-            }
-            else
-            {
-                _isActive = false;
-            }
-        }
+        #region MoveRigidbody
+
+        // private void Update()
+        // {
+        //     if (_lifetime > 0)
+        //     {
+        //         _isActive = true;
+        //         _lifetime -= Time.deltaTime;
+        //     }
+        //     else
+        //     {
+        //         _isActive = false;
+        //         Destroy(gameObject);
+        //     }
+        // }
+        //
+        // private void FixedUpdate()
+        // {
+        //     if (_isActive)
+        //     {
+        //         Move(_direction);
+        //     }
+        // }
+        //
+        // private void Move(Vector3 direction)
+        // {
+        //     _rigidbody.MovePosition(_rigidbody.position + direction * (_speed * Time.fixedDeltaTime));
+        // }
+
+        #endregion
         
-        private void FixedUpdate()
+        #region MoveCoroutine
+
+        protected virtual IEnumerator Move(Vector3 direction, float lifetime, float speed)
         {
-            if (_isActive)
+            var timer = lifetime;
+            while (timer > 0)
             {
-                Move(_direction);
+                transform.position += direction * (Time.deltaTime * speed);
+                yield return new WaitForEndOfFrame();
+                timer -= Time.deltaTime;
             }
+
+            Destroy(gameObject);
         }
+
+        #endregion
         
-        private void LoadData(ProjectileData projectileData)
+        protected virtual void LoadData(ProjectileData projectileData)
         {
             _direction = projectileData.SetDirection();
             _damage = projectileData.Damage;
@@ -48,25 +75,17 @@ namespace Boss
             _rigidbody = GetComponent<Rigidbody>();
         }
 
-        private void Move(Vector3 direction)
-        {
-            _rigidbody.MovePosition(_rigidbody.position + direction * (_speed * Time.fixedDeltaTime));
-        }
-
-        // private IEnumerator Move(Vector3 direction, float lifetime)
-        // {
-        //     var timer = lifetime;
-        //     while (timer > 0)
-        //     {
-        //         transform.position += direction * (Time.deltaTime * _speed);
-        //         yield return new WaitForEndOfFrame();
-        //         timer -= Time.deltaTime;
-        //     }
-        // }
-
-        public void GiveDamage(float hp)
+        protected void GiveDamage(float hp)
         {
             hp -= _damage;
+        }
+
+        private void OnCollisionEnter(Collision other)
+        {
+            if (other.gameObject.CompareTag("Player"))
+            {
+                Destroy(gameObject);
+            }
         }
     }
 
