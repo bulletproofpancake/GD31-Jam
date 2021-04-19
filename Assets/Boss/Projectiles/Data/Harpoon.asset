@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   direction: 2
   damage: 25
-  speed: 3.5
+  speed: 5
   lifetime: 3
