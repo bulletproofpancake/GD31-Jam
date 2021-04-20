@@ -61,7 +61,15 @@ public class PlayerMovementUpdate : MonoBehaviour
 
         dash = transform.right * hInput + transform.forward * vInput;
         jump();
-        
+
+        if (facingRight == false && hInput > 0)
+        {
+            Flip();
+        }
+        else if (facingRight == true && hInput < 0)
+        {
+            Flip();
+        }
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
@@ -112,4 +120,12 @@ public class PlayerMovementUpdate : MonoBehaviour
         }
     }
 
+
+    void Flip()
+    {
+        facingRight = !facingRight;
+        Vector3 Scaler = transform.localScale;
+        Scaler.x *= -1;
+        transform.localScale = Scaler;
+    }
 }
