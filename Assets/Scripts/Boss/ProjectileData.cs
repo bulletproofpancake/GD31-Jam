@@ -3,12 +3,12 @@ using UnityEngine;
 
 namespace Boss
 {
-    [CreateAssetMenu(menuName = "Data/Boss/ProjectileData")]
+    [CreateAssetMenu(menuName = "Data/Boss/Projectiles/ProjectileData")]
     public class ProjectileData : ScriptableObject
     {
 
-        [SerializeField] private Direction direction;
-        [SerializeField] private float damage, speed, lifetime;
+        [SerializeField] protected Direction direction;
+        [SerializeField] protected float damage, speed, lifetime;
         public float Damage => damage;
         public float Speed => speed;
         public float Lifetime => lifetime;

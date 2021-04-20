@@ -6,11 +6,13 @@ namespace Boss
     public class ReturningProjectile : Projectile
     {
         private bool _forward;
-
+        private float _stallTime;
         protected override void LoadData(ProjectileData projectileData)
         {
             base.LoadData(projectileData);
+            var data = (ReturningProjectileData) projectileData;
             _forward = true;
+            _stallTime = data.StallTime;
         }
 
         protected override IEnumerator Move(Vector3 direction, float lifetime, float speed)
@@ -31,7 +33,7 @@ namespace Boss
             }
             else
             {
-                yield return new WaitForSeconds(lifetime/2);
+                yield return new WaitForSeconds(_stallTime);
                 while (timer > 0)
                 {
                     transform.position += -direction * (Time.deltaTime * speed);
