@@ -5,36 +5,28 @@ using UnityEngine;
 public class PlayerMovementUpdate : MonoBehaviour
 {
 
-    //int var
-
-
-    public Vector2 moveSpeed;
-    public float normalSpeed = 3.0f;
-    public float dashing = 5.0f;
-    public float jumpForce = 300f;
-
-
     private Animator animator;
-    private Rigidbody2D _rigidbody;
-
 
     //for flip
     private bool facingRight = true;
 
     //for move
-    public float horizontalMovement;
-    public float VerticalMovement;
+    public CharacterController controller;
+    private Vector3 dir;
+    public float speed;
 
     //for jump 
+    public float jumpForce = 300f; 
     public Transform groundCheck;
     public float checkRadius;
     private bool isGrounded;
     public LayerMask whatIsGround;
     private bool isJumping = false;
+    public float gravity = -20;
 
     //for double jump
-    private int extraJumps;
-    public int extraJumpsValue;
+    bool canDoubleJump = true;
+
 
 
     //for dash
@@ -42,119 +34,91 @@ public class PlayerMovementUpdate : MonoBehaviour
     public int extraDashValue;
     public GameObject dashEffect;
     public float DashForce;
-    public float StartDashTimer;
+    public float DashTimer;
     bool isDashing;
-    float DashDirection;
-    float currentDashTimer;
-
+    Vector3 dash;
 
 
 
     void Start()
     {
    	 animator = GetComponent<Animator>();
-	_rigidbody = GetComponent<Rigidbody2D>();
 
-        extraJumps = extraJumpsValue;
         extraDash = extraDashValue;
-        moveSpeed = new Vector2(3f, 0f);
-    }
-
-    void FixedUpdate()
-    {
-        float characterSpeed = Mathf.Abs(_rigidbody.velocity.x);
-        animator.SetFloat("Speed", characterSpeed);
-		
-        animator.SetBool("isGrounded", isGrounded);
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
+        isGrounded = Physics.CheckSphere(groundCheck.position, checkRadius, whatIsGround);
 
-        horizontalMovement = Input.GetAxis("Horizontal") * moveSpeed.x;
-        VerticalMovement = Input.GetAxis("Vertical") * moveSpeed.y;
+        float hInput = Input.GetAxis("Horizontal");
+        float vInput = Input.GetAxis("Vertical");
+        dir.x = hInput * speed;
 
-        _rigidbody.velocity = new Vector2(horizontalMovement, _rigidbody.velocity.y);
+        controller.Move(dir * Time.deltaTime);
 
+        dash = transform.right * hInput + transform.forward * vInput;
+        jump();
 
-
-        if (facingRight == false && horizontalMovement > 0)
+        if (facingRight == false && hInput > 0)
         {
             Flip();
         }
-        else if (facingRight== true && horizontalMovement <0)
+        else if (facingRight == true && hInput < 0)
         {
             Flip();
         }
-
-        if(isGrounded == true)
-        {
-            extraJumps = 1;
-            extraDash = 1;
-            animator.SetBool("isJumping", false);
-        }
-        else
-        {
-            animator.SetBool("isJumping", true);
-        }
-
-        if (Input.GetKeyDown(KeyCode.Space) && extraJumps>0)
-        {  
-             animator.SetBool("isJumping", true);
-            //FindObjectOfType<AudioManagerScript>().Play("Jump_Sound");
-            isJumping = true;
-            _rigidbody.velocity = Vector2.zero;
-            _rigidbody.AddForce(new Vector2(0, jumpForce));
-            extraJumps--;
-        }
-        else if (Input.GetKeyDown(KeyCode.Space) && extraJumps == 0 && isGrounded == true)
-        {
-            //FindObjectOfType<AudioManagerScript>().Play("Jump_Sound");
-            _rigidbody.velocity = Vector2.up * jumpForce;
-        } 
-
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
-            if (extraDash >= 1)
+            StartCoroutine(Dash());
+            
+        }
+
+    }
+    IEnumerator Dash()
+    {
+        if (extraDash >0)
+        {
+            float startTime = Time.time;
+            while (Time.time < startTime + DashTimer)
             {
                 isDashing = true;
                 //FindObjectOfType<AudioManager>().Play("dash");
-
-                currentDashTimer = StartDashTimer;
-                _rigidbody.velocity = Vector2.zero;
-                DashDirection = (int)horizontalMovement;
-                --extraDash;
-            }
-
-        }
-        if (isDashing)
-        {
-            _rigidbody.velocity = transform.right * DashDirection * DashForce;
-            currentDashTimer -= Time.deltaTime;
-
-            if (currentDashTimer < 0)
-            {
-                isDashing = false;
+                controller.Move(dash * DashForce * Time.deltaTime);
+                yield return null;
                 --extraDash;
             }
         }
-
-
     }
-
-
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void jump()
     {
-        if(collision.gameObject.tag == "Ground")
+        if (isGrounded)
         {
-            isJumping = false;
+            canDoubleJump = true;
+            extraDash = 1;
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                // animator.SetBool("isJumping", true);
+                //FindObjectOfType<AudioManagerScript>().Play("Jump_Sound");
+                isJumping = true;
+                dir.y = jumpForce;
+            }
+
+        }
+        else
+        {
+            dir.y += gravity * Time.deltaTime;
+            if (Input.GetKeyDown(KeyCode.Space) && canDoubleJump)
+            {
+                //FindObjectOfType<AudioManagerScript>().Play("Jump_Sound");
+                dir.y = jumpForce;
+                canDoubleJump = false;
+            }
         }
     }
-
 
 
     void Flip()
@@ -164,8 +128,4 @@ public class PlayerMovementUpdate : MonoBehaviour
         Scaler.x *= -1;
         transform.localScale = Scaler;
     }
-
-
-
-
 }
