@@ -1,14 +1,14 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Boss
+namespace Boss.Projectiles
 {
     [CreateAssetMenu(menuName = "Data/Boss/Projectiles/ProjectileData")]
     public class ProjectileData : ScriptableObject
     {
 
-        [SerializeField] protected Direction direction;
-        [SerializeField] protected float damage, speed, lifetime;
+        [SerializeField] private Direction direction;
+        [SerializeField] private float damage, speed, lifetime;
         public float Damage => damage;
         public float Speed => speed;
         public float Lifetime => lifetime;

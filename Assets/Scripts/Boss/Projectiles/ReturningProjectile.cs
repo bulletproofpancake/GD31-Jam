@@ -1,18 +1,20 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-namespace Boss
+namespace Boss.Projectiles
 {
     public class ReturningProjectile : Projectile
     {
         private bool _forward;
         private float _stallTime;
+        private bool _isNotDestructible;
         protected override void LoadData(ProjectileData projectileData)
         {
             base.LoadData(projectileData);
             var data = (ReturningProjectileData) projectileData;
             _forward = true;
             _stallTime = data.StallTime;
+            _isNotDestructible = data.IsNotDestructible;
         }
 
         protected override IEnumerator Move(Vector3 direction, float lifetime, float speed)
@@ -40,7 +42,10 @@ namespace Boss
                     yield return new WaitForEndOfFrame();
                     timer -= Time.deltaTime;
                 }
-                Destroy(gameObject);
+
+                if(!_isNotDestructible){
+                    GetDestroyed();
+                }
             }
 
         }

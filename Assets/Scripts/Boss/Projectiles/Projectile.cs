@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 
-namespace Boss
+namespace Boss.Projectiles
 {
     public class Projectile : MonoBehaviour
     {
@@ -11,11 +10,18 @@ namespace Boss
         private float _damage, _speed, _lifetime;
         private Rigidbody _rigidbody;
         private bool _isActive;
+        
+        public float Damage => _damage;
 
         private void Start()
         {
             LoadData(data);
-            StartCoroutine(Move(_direction, _lifetime, _speed));
+            StartMoving(_direction, _lifetime, _speed);
+        }
+
+        protected void StartMoving(Vector3 direction, float lifetime, float speed)
+        {
+            StartCoroutine(Move(direction, lifetime, speed));
         }
 
         #region MoveRigidbody
@@ -61,7 +67,7 @@ namespace Boss
                 timer -= Time.deltaTime;
             }
 
-            Destroy(gameObject);
+            GetDestroyed();
         }
 
         #endregion
@@ -75,16 +81,16 @@ namespace Boss
             _rigidbody = GetComponent<Rigidbody>();
         }
 
-        protected void GiveDamage(float hp)
+        protected void GetDestroyed()
         {
-            hp -= _damage;
+            Destroy(gameObject);
         }
-
+        
         private void OnCollisionEnter(Collision other)
         {
             if (other.gameObject.CompareTag("Player"))
             {
-                Destroy(gameObject);
+                GetDestroyed();
             }
         }
     }

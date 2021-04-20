@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 
-namespace Boss
+namespace Boss.Projectiles
 {
     public class ProjectileSpawner : MonoBehaviour
     {
@@ -15,11 +14,6 @@ namespace Boss
             StartCoroutine(SpawnCoroutine(prefab, spawnPositions, delayTime));
         }
         
-        private void Spawn(GameObject projectile,Transform spawnPosition)
-        {
-            Instantiate(projectile, spawnPosition.position, Quaternion.identity);
-        }
-        
         private IEnumerator SpawnCoroutine(GameObject projectile, Transform[] positions, float interval)
         {
             foreach (var position in positions)
@@ -27,6 +21,11 @@ namespace Boss
                 yield return new WaitForSeconds(interval);
                 Spawn(projectile, position);
             }
+        }
+        
+        private void Spawn(GameObject projectile,Transform spawnPosition)
+        {
+            Instantiate(projectile, spawnPosition.position, Quaternion.identity);
         }
     }
 }
