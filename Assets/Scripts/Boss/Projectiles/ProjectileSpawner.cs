@@ -5,16 +5,21 @@ namespace Boss.Projectiles
 {
     public class ProjectileSpawner : MonoBehaviour
     {
-        [SerializeField] private GameObject prefab;
-        [SerializeField] private float delayTime;
-        [SerializeField] private Transform[] spawnPositions;
+        [SerializeField] protected GameObject prefab;
+        [SerializeField] protected float delayTime;
+        [SerializeField] protected Transform[] spawnPositions;
 
-        private void Start()
+        protected virtual void Start()
+        {
+            InvokeRepeating("StartSpawning", 1f, delayTime * 2);
+        }
+
+        private void StartSpawning()
         {
             StartCoroutine(SpawnCoroutine(prefab, spawnPositions, delayTime));
         }
-        
-        private IEnumerator SpawnCoroutine(GameObject projectile, Transform[] positions, float interval)
+
+        protected virtual IEnumerator SpawnCoroutine(GameObject projectile, Transform[] positions, float interval)
         {
             foreach (var position in positions)
             {
@@ -23,7 +28,7 @@ namespace Boss.Projectiles
             }
         }
         
-        private void Spawn(GameObject projectile,Transform spawnPosition)
+        protected void Spawn(GameObject projectile,Transform spawnPosition)
         {
             Instantiate(projectile, spawnPosition.position, Quaternion.identity);
         }
