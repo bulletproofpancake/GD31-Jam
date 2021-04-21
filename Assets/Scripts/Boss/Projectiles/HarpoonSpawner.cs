@@ -10,7 +10,7 @@ namespace Boss.Projectiles
         protected override void Start()
         {
             player = GameObject.FindWithTag("Player");
-            base.Start();
+            InvokeRepeating("StartSpawning", 1f, delayTime*2+1f);
         }
 
         private void Update()

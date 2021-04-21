@@ -11,10 +11,10 @@ namespace Boss.Projectiles
 
         protected virtual void Start()
         {
-            InvokeRepeating("StartSpawning", 1f, delayTime * 2);
+            StartSpawning();
         }
 
-        private void StartSpawning()
+        protected void StartSpawning()
         {
             StartCoroutine(SpawnCoroutine(prefab, spawnPositions, delayTime));
         }
