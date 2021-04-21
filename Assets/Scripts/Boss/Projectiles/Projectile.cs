@@ -5,7 +5,7 @@ namespace Boss.Projectiles
 {
     public class Projectile : MonoBehaviour
     {
-        [SerializeField] private ProjectileData data;
+        public ProjectileData data;
         private Vector3 _direction;
         private float _damage, _speed, _lifetime;
         private Rigidbody _rigidbody;

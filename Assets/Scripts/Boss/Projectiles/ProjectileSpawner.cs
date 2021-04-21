@@ -8,10 +8,21 @@ namespace Boss.Projectiles
         [SerializeField] protected GameObject prefab;
         [SerializeField] protected float delayTime;
         [SerializeField] protected Transform[] spawnPositions;
-        
+        public bool canSpawn;
+        public float cooldownTime;   
         public virtual void StartSpawning()
         {
+            if (!canSpawn) return;
+            
             SpawnProjectile();
+            StartCoroutine(CoolDown());
+        }
+
+        private IEnumerator CoolDown()
+        {
+            canSpawn = false;
+            yield return new WaitForSeconds(cooldownTime);
+            canSpawn = true;
         }
         
         protected void SpawnProjectile()

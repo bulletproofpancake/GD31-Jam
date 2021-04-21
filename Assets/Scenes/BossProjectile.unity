@@ -1823,6 +1823,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1076907164}
   m_CullTransparentMesh: 1
+--- !u!114 &1104211760 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5304466679255848055, guid: be3e62dfabf726943a4be2d95501afdc, type: 3}
+  m_PrefabInstance: {fileID: 493073104}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06fca639aeae4c018089cec678dc1840, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1122729606
 GameObject:
   m_ObjectHideFlags: 0
@@ -3190,17 +3201,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1882963085}
   m_CullTransparentMesh: 1
---- !u!114 &1900767053 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1463844890009925928, guid: be3e62dfabf726943a4be2d95501afdc, type: 3}
-  m_PrefabInstance: {fileID: 493073104}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a91b4df0046c41bd9a0ba6d10647d67d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1926213190
 GameObject:
   m_ObjectHideFlags: 0
@@ -3618,7 +3618,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7194369d026384542a221b638ae2e0f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  harpoonSpawner: {fileID: 1900767053}
+  harpoonSpawner: {fileID: 1104211760}
   geyserSpawner: {fileID: 381896332}
 --- !u!1 &2054501560
 GameObject:

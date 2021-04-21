@@ -5,9 +5,5 @@ using UnityEngine;
 public class BossAttack : MonoBehaviour
 {
     [SerializeField] private ProjectileSpawner harpoonSpawner, geyserSpawner;
-
-    private void Start()
-    {
-        harpoonSpawner.StartSpawning();
-    }
+    [SerializeField] private float harpoonRange, geyserRange;
 }
