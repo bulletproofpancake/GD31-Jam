@@ -8,13 +8,13 @@ namespace Boss.Projectiles
         [SerializeField] protected GameObject prefab;
         [SerializeField] protected float delayTime;
         [SerializeField] protected Transform[] spawnPositions;
-
-        protected virtual void Start()
+        
+        public virtual void StartSpawning()
         {
-            StartSpawning();
+            SpawnProjectile();
         }
-
-        protected void StartSpawning()
+        
+        protected void SpawnProjectile()
         {
             StartCoroutine(SpawnCoroutine(prefab, spawnPositions, delayTime));
         }

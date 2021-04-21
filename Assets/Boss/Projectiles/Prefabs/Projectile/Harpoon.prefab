@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 7434516460583055413}
   - component: {fileID: 7434516460583055412}
   - component: {fileID: 7434516460583055415}
-  - component: {fileID: 2579507626884254216}
   - component: {fileID: 1819489796588735667}
+  - component: {fileID: 9071896552527107325}
   m_Layer: 0
   m_Name: Harpoon
   m_TagString: Untagged
@@ -97,19 +97,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2579507626884254216
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7434516460583055416}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 696de1cc309d474a8a916637fcce1c30, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: 82532e578f70858419df1caf23f0f324, type: 2}
 --- !u!54 &1819489796588735667
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -126,3 +113,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 124
   m_CollisionDetection: 1
+--- !u!114 &9071896552527107325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7434516460583055416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 155c05040b714af7a96b4808c1d09351, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: 82532e578f70858419df1caf23f0f324, type: 2}
