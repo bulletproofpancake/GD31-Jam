@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class NPCScript : MonoBehaviour
 {
     public GameObject pressUI;
@@ -21,7 +21,6 @@ public class NPCScript : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.E))
             {
-                Debug.Log("pressing");
                 upgradesUI.SetActive(true);
             }
         }
@@ -50,6 +49,23 @@ public class NPCScript : MonoBehaviour
     public void UpgradeBackButton()
     {
         upgradesUI.SetActive(false);
-    }    
+    }
+
+    public void LoadScene(string sceneName)
+    {
+        //FindObjectOfType<AudioManager>().Play("button");
+        StartCoroutine(LoadLevel(sceneName));
+        PlayerPrefs.SetFloat("CurrentScore", 0);
+
+    }
+
+    IEnumerator LoadLevel(string sceneName)
+    {
+        //animator.SetTrigger("End");
+
+        yield return new WaitForSeconds(1);
+
+        SceneManager.LoadScene(sceneName);
+    }
 
 }
