@@ -10,6 +10,7 @@ namespace Boss.Projectiles
         [SerializeField] protected Transform[] spawnPositions;
         public bool canSpawn;
         public float cooldownTime;   
+        
         public virtual void StartSpawning()
         {
             if (!canSpawn) return;
