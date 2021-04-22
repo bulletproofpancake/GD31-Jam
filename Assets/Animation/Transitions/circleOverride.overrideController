@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: circleOverride
+  m_Controller: {fileID: 9100000, guid: 4fe5cac5bff96fc4888540ea72c05f15, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 5840f4436e05c924aa27cb69a1c6575a, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 197e9c11c4f69b94db9372b0789527a3, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 4efe2f520d185064896f21c6488b270f, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: e7e5f8b328980c94b8ef695558d74317, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 417b0a2a1e2e21d4b894b1dcf3227507, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 417b0a2a1e2e21d4b894b1dcf3227507, type: 2}

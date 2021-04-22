@@ -13,18 +13,10 @@ public class MainMenu : MonoBehaviour
   
     public GameObject QuizButton;
 
+
     private void Start()
     {
      
-    }
-
-
-    public void LoadScene(string sceneName)
-    {
-       //FindObjectOfType<AudioManager>().Play("button");
-        StartCoroutine(LoadLevel(sceneName));
-        PlayerPrefs.SetFloat("CurrentScore", 0);
-
     }
 
     public void ShowCredits()
@@ -46,14 +38,6 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
     }
 
-    IEnumerator LoadLevel(string sceneName)
-    {
-        //animator.SetTrigger("End");
-
-        yield return new WaitForSeconds(1);
-
-        SceneManager.LoadScene(sceneName);
-    }
 
     public void MainMenuBack()
     {
