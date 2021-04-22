@@ -104,7 +104,7 @@ public class PlayerMovementUpdate : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 // animator.SetBool("isJumping", true);
-                //FindObjectOfType<AudioManagerScript>().Play("Jump_Sound");
+                FindObjectOfType<Audio>().Play("jump");
                 isJumping = true;
                 dir.y = jumpForce;
             }
@@ -115,6 +115,7 @@ public class PlayerMovementUpdate : MonoBehaviour
             dir.y += gravity * Time.deltaTime;
             if (Input.GetKeyDown(KeyCode.Space) && canDoubleJump)
             {
+                FindObjectOfType<Audio>().Play("jump");
                 //FindObjectOfType<AudioManagerScript>().Play("Jump_Sound");
                 dir.y = jumpForce;
                 canDoubleJump = false;

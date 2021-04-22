@@ -156,8 +156,8 @@ MonoBehaviour:
   gravity: -20
   extraDashValue: 0
   dashEffect: {fileID: 0}
-  DashForce: 1
-  DashTimer: 0.01
+  DashForce: 50
+  DashTimer: 0.25
 --- !u!143 &4546554611509370970
 CharacterController:
   m_ObjectHideFlags: 0
