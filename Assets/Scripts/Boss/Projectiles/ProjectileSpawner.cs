@@ -1,48 +1,18 @@
-﻿using System.Collections;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-namespace Boss.Projectiles
+public class ProjectileSpawner : MonoBehaviour
 {
-    public class ProjectileSpawner : MonoBehaviour
+    // Start is called before the first frame update
+    void Start()
     {
-        [SerializeField] protected GameObject prefab;
-        [SerializeField] protected float delayTime;
-        [SerializeField] protected Transform[] spawnPositions;
-        public bool canSpawn;
-        public float cooldownTime;   
         
-        public virtual void StartSpawning()
-        {
-            if (!canSpawn) 
-                StartCoroutine(CoolDown());
-        }
+    }
 
-        private IEnumerator CoolDown()
-        {
-            canSpawn = false;
-            yield return new WaitForSeconds(cooldownTime);
-            canSpawn = true;
-            
-            SpawnProjectile();
-        }
+    // Update is called once per frame
+    void Update()
+    {
         
-        protected void SpawnProjectile()
-        {
-            StartCoroutine(SpawnCoroutine(prefab, spawnPositions, delayTime));
-        }
-
-        protected virtual IEnumerator SpawnCoroutine(GameObject projectile, Transform[] positions, float interval)
-        {
-            foreach (var position in positions)
-            {
-                yield return new WaitForSeconds(interval);
-                Spawn(projectile, position);
-            }
-        }
-        
-        protected void Spawn(GameObject projectile,Transform spawnPosition)
-        {
-            Instantiate(projectile, spawnPosition.position, Quaternion.identity);
-        }
     }
 }

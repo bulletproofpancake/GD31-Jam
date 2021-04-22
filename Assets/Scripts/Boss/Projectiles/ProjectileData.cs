@@ -6,7 +6,6 @@ namespace Boss.Projectiles
     [CreateAssetMenu(menuName = "Data/Boss/Projectiles/ProjectileData")]
     public class ProjectileData : ScriptableObject
     {
-
         [SerializeField] private Direction direction;
         [SerializeField] private float damage, speed, lifetime;
         public float Damage => damage;
