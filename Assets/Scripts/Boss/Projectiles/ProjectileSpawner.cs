@@ -1,36 +1,61 @@
-﻿using System.Collections;
+using System;
 using UnityEngine;
 
-namespace Boss.Projectiles
+public class ProjectileSpawner : MonoBehaviour
 {
-    public class ProjectileSpawner : MonoBehaviour
+    [SerializeField] private GameObject prefab;
+    [SerializeField] private Transform[] spawnPoints;
+    [SerializeField] private float shotInterval;
+    [SerializeField] private bool tracksPlayer;
+    [SerializeField] private float speed;
+    
+    public bool isActive;
+    private float shotTime;
+    private GameObject player;
+    private Material material;
+
+    private void Start()
     {
-        [SerializeField] protected GameObject prefab;
-        [SerializeField] protected float delayTime;
-        [SerializeField] protected Transform[] spawnPositions;
+        material = GetComponent<MeshRenderer>().material;
+        player = GameObject.FindWithTag("Player");
+        shotTime = shotInterval;
+    }
 
-        protected virtual void Start()
+    private void Update()
+    {
+        if (tracksPlayer)
         {
-            StartSpawning();
-        }
-
-        protected void StartSpawning()
-        {
-            StartCoroutine(SpawnCoroutine(prefab, spawnPositions, delayTime));
-        }
-
-        protected virtual IEnumerator SpawnCoroutine(GameObject projectile, Transform[] positions, float interval)
-        {
-            foreach (var position in positions)
+            if (player != null)
             {
-                yield return new WaitForSeconds(interval);
-                Spawn(projectile, position);
+                var playerHeight = new Vector3(transform.position.x, player.transform.position.y);
+                transform.position = Vector3.Lerp(transform.position, playerHeight, Time.deltaTime * speed);
+
             }
         }
-        
-        protected void Spawn(GameObject projectile,Transform spawnPosition)
+        if (isActive)
         {
-            Instantiate(projectile, spawnPosition.position, Quaternion.identity);
+            SpawnProjectiles();
+        }
+    }
+
+    private void SpawnProjectiles()
+    {
+        foreach (var spawnPoint in spawnPoints)
+        {
+            if (shotTime <= 0)
+            {
+                Instantiate(prefab, spawnPoint.position, Quaternion.identity);
+                isActive = false;
+                tracksPlayer = true;
+                shotTime = shotInterval;
+                material.color = Color.white;
+            }
+            else
+            {
+                tracksPlayer = false;
+                material.color = Color.red;
+                shotTime -= Time.deltaTime;
+            }
         }
     }
 }
