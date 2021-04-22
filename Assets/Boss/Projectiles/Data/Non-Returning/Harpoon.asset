@@ -9,12 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6f5fd94cb494929bcd4d2371aa6b67f, type: 3}
+  m_Script: {fileID: 11500000, guid: dda53bcb69b048879198473899121c23, type: 3}
   m_Name: Harpoon
   m_EditorClassIdentifier: 
   direction: 2
   damage: 25
-  speed: 15
-  lifetime: 1
-  stallTime: 1
-  isNotDestructible: 0
+  speed: 20
+  lifetime: 2

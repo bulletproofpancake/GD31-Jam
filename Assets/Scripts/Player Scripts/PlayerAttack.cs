@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,8 +14,24 @@ public class PlayerAttack : MonoBehaviour
 
     public int damage;
 
+    public HealthBar healthbar;
+    public float maxHealth = 100f;
+    private float currentHealth;
+
+    private void Start()
+    {
+        currentHealth = maxHealth;
+        healthbar.SetMaxHealth(maxHealth);
+    }
+
     private void Update()
     {
+
+        if (currentHealth <= 0)
+        {
+            Destroy(gameObject);
+        }
+        
         if(timeBtwAttack <= 0)
         {
             if(Input.GetKey(KeyCode.Z))
@@ -37,6 +54,13 @@ public class PlayerAttack : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(attackPos.position, attackRange);
+    }
+    
+    public void TakeDamage(float damage)
+    {
+        currentHealth -= damage;
+        Debug.Log("dmg taken " + damage);
+        healthbar.SetHealh(currentHealth);
     }
 
 }
