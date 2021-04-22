@@ -73,20 +73,22 @@ public class PlayerMovementUpdate : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
+
             StartCoroutine(Dash());
-            
         }
 
     }
     IEnumerator Dash()
     {
+
         if (extraDash >0)
         {
+            FindObjectOfType<Audio>().Play("dash");
             float startTime = Time.time;
             while (Time.time < startTime + DashTimer)
             {
                 isDashing = true;
-                //FindObjectOfType<AudioManager>().Play("dash");
+                
                 controller.Move(dash * DashForce * Time.deltaTime);
                 yield return null;
                 --extraDash;
@@ -124,6 +126,8 @@ public class PlayerMovementUpdate : MonoBehaviour
     void Flip()
     {
         facingRight = !facingRight;
-        transform.Rotate(0f, 180f, 0f);
+        Vector3 Scaler = transform.localScale;
+        Scaler.x *= -1;
+        transform.localScale = Scaler;
     }
 }

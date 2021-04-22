@@ -1862,11 +1862,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1177492356}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.66, y: 1.64, z: -10}
+  m_LocalPosition: {x: 1.6599998, y: 1.64, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4546554613107059130}
-  m_RootOrder: 0
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1217174571
 GameObject:
@@ -2000,7 +2000,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a6247f50f5fb264a84068d9eede0727, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds: []
+  sounds:
+  - name: dash
+    clip: {fileID: 8300000, guid: 80daea07025b85341bfbce6a7f17d798, type: 3}
+    volume: 0.49
+    pitch: 1
+    panStereo: 0
+    playOnAwake: 0
+    minDistance: 0
+    maxDistance: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: shoot
+    clip: {fileID: 8300000, guid: 2338a88238bb8b340870d491baaed1eb, type: 3}
+    volume: 0.49
+    pitch: 1
+    panStereo: 0
+    playOnAwake: 0
+    minDistance: 0
+    maxDistance: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: melee
+    clip: {fileID: 8300000, guid: 564767e2d5c44c64889600754a16845e, type: 3}
+    volume: 0.49
+    pitch: 1
+    panStereo: 0
+    playOnAwake: 0
+    minDistance: 0
+    maxDistance: 0
+    loop: 0
+    source: {fileID: 0}
 --- !u!82 &1432345490
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3829,7 +3859,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4546554613107059130}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2469805642010228955
 GameObject:
@@ -3875,7 +3905,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4546554613107059130}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4546554612534525429
 Transform:
@@ -3889,7 +3919,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4546554613107059130}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4546554612534525434
 GameObject:
@@ -3992,10 +4022,10 @@ Transform:
   m_LocalPosition: {x: -7.68, y: -0.64, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1177492359}
   - {fileID: 4546554612534525429}
   - {fileID: 4546554611532764359}
   - {fileID: 2031712211866897507}
+  - {fileID: 1177492359}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4053,8 +4083,8 @@ MonoBehaviour:
   gravity: -20
   extraDashValue: 0
   dashEffect: {fileID: 0}
-  DashForce: 1
-  DashTimer: 0.01
+  DashForce: 50
+  DashTimer: 0.25
 --- !u!143 &4546554613107059135
 CharacterController:
   m_ObjectHideFlags: 0

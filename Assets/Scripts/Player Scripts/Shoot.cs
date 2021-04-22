@@ -17,6 +17,7 @@ public class Shoot : MonoBehaviour
 
     private void shoot()
     {
+        FindObjectOfType<Audio>().Play("shoot");
         Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
     }
 }

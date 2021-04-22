@@ -19,6 +19,7 @@ public class PlayerAttack : MonoBehaviour
         {
             if(Input.GetKey(KeyCode.Z))
             {
+                FindObjectOfType<Audio>().Play("melee");
                 Collider[] enemiesToDamage = Physics.OverlapSphere(attackPos.position, attackRange, whatIsEnemies);
                 for (int i = 0; i < enemiesToDamage.Length; i++)
                 {
