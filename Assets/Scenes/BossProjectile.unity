@@ -2048,8 +2048,7 @@ MonoBehaviour:
   prefab: {fileID: 7434516460583055416, guid: 1291c889a98cf4f4b8deb4c05233c599, type: 3}
   spawnPoints:
   - {fileID: 1236259809}
-  cooldown: 3
-  shotInterval: 1
+  shotInterval: 3
   tracksPlayer: 1
   isActive: 0
 --- !u!23 &1236259811
@@ -3476,6 +3475,29 @@ PrefabInstance:
       objectReference: {fileID: 349088551}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ea7422f5525dbe4a826f14495e45c2f, type: 3}
+--- !u!1 &2042855960 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7340177166810041084, guid: 7ea7422f5525dbe4a826f14495e45c2f, type: 3}
+  m_PrefabInstance: {fileID: 2042855959}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2042855965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2042855960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e913d564583d4527b024edbe13cea859, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eyes: {fileID: 1236259809}
+  harpoonSpawner: {fileID: 1236259810}
+  harpoonRange: 15
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &2054501560
 GameObject:
   m_ObjectHideFlags: 0
