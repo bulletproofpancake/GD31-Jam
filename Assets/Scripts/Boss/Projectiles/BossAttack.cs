@@ -6,8 +6,8 @@ namespace Boss.Projectiles
     public class BossAttack : MonoBehaviour
     {
         [SerializeField] private Transform eyes;
-        [SerializeField] private ProjectileSpawner harpoonSpawner;
-        [SerializeField] private float harpoonRange;
+        [SerializeField] private ProjectileSpawner harpoonSpawner,geyserSpawner;
+        [SerializeField] private float harpoonRange,geyserRange;
         [SerializeField] private LayerMask playerLayer;
         
         private void Update()

@@ -7,6 +7,7 @@ public class ProjectileSpawner : MonoBehaviour
     [SerializeField] private Transform[] spawnPoints;
     [SerializeField] private float shotInterval;
     [SerializeField] private bool tracksPlayer;
+    [SerializeField] private float speed;
     
     public bool isActive;
     private float shotTime;
@@ -25,7 +26,11 @@ public class ProjectileSpawner : MonoBehaviour
         if (tracksPlayer)
         {
             if (player != null)
-                transform.position = new Vector3(transform.position.x, player.transform.position.y);
+            {
+                var playerHeight = new Vector3(transform.position.x, player.transform.position.y);
+                transform.position = Vector3.Lerp(transform.position, playerHeight, Time.deltaTime * speed);
+
+            }
         }
         if (isActive)
         {
@@ -41,11 +46,13 @@ public class ProjectileSpawner : MonoBehaviour
             {
                 Instantiate(prefab, spawnPoint.position, Quaternion.identity);
                 isActive = false;
+                tracksPlayer = true;
                 shotTime = shotInterval;
                 material.color = Color.white;
             }
             else
             {
+                tracksPlayer = false;
                 material.color = Color.red;
                 shotTime -= Time.deltaTime;
             }

@@ -2048,8 +2048,9 @@ MonoBehaviour:
   prefab: {fileID: 7434516460583055416, guid: 1291c889a98cf4f4b8deb4c05233c599, type: 3}
   spawnPoints:
   - {fileID: 1236259809}
-  shotInterval: 3
+  shotInterval: 2
   tracksPlayer: 1
+  speed: 3
   isActive: 0
 --- !u!23 &1236259811
 MeshRenderer:
@@ -3494,7 +3495,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eyes: {fileID: 1236259809}
   harpoonSpawner: {fileID: 1236259810}
+  geyserSpawner: {fileID: 0}
   harpoonRange: 15
+  geyserRange: 0
   playerLayer:
     serializedVersion: 2
     m_Bits: 256
