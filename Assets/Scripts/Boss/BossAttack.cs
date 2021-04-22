@@ -17,21 +17,20 @@ public class BossAttack : MonoBehaviour
     void AttackPlayer()
     {
         var ray = new Ray(eyes.position, Vector3.left);
-        RaycastHit hit;
-
         Debug.DrawRay(ray.origin, ray.direction * harpoonRange, Color.green);
 
-        if (!Physics.Raycast(ray, out hit, harpoonRange, playerMask)) return;
+        if (!Physics.SphereCast(ray,1f,out var hit,harpoonRange,playerMask)) return;
         if (!hit.collider.CompareTag("Player")) return;
         
         Debug.DrawRay(ray.origin, ray.direction * hit.distance, Color.red);
-        
         harpoonSpawner.StartSpawning();
 
-        if (Vector3.Distance(ray.origin,hit.point) <= geyserRange)
+        if (hit.point.x <= geyserRange)
         {
+            print("geyser");
             geyserSpawner.StartSpawning();
         }
         
     }
+
 }

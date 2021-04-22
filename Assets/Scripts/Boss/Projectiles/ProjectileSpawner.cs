@@ -13,10 +13,8 @@ namespace Boss.Projectiles
         
         public virtual void StartSpawning()
         {
-            if (!canSpawn) return;
-            
-            SpawnProjectile();
-            StartCoroutine(CoolDown());
+            if (!canSpawn) 
+                StartCoroutine(CoolDown());
         }
 
         private IEnumerator CoolDown()
@@ -24,6 +22,8 @@ namespace Boss.Projectiles
             canSpawn = false;
             yield return new WaitForSeconds(cooldownTime);
             canSpawn = true;
+            
+            SpawnProjectile();
         }
         
         protected void SpawnProjectile()
