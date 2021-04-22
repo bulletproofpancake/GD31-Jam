@@ -1,18 +1,49 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class ProjectileSpawner : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private GameObject prefab;
+    [SerializeField] private Transform[] spawnPoints;
+    [SerializeField] private float cooldown, shotInterval;
+    [SerializeField] private bool tracksPlayer;
+    
+    public bool isActive;
+    private float shotTime;
+    private GameObject player;
+
+    private void Start()
     {
-        
+        player = GameObject.FindWithTag("Player");
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        if (tracksPlayer)
+        {
+            if (player != null)
+                transform.position = new Vector3(transform.position.x, player.transform.position.y);
+        }
+        if (isActive)
+        {
+            SpawnProjectiles();
+        }
+    }
+
+    private void SpawnProjectiles()
+    {
+        foreach (var spawnPoint in spawnPoints)
+        {
+            if (shotTime <= 0)
+            {
+                Instantiate(prefab, spawnPoint.position, Quaternion.identity);
+                isActive = false;
+                shotTime = shotInterval;
+            }
+            else
+            {
+                shotTime -= Time.deltaTime;
+            }
+        }
     }
 }

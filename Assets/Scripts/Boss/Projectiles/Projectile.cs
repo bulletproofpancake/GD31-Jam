@@ -29,7 +29,7 @@ namespace Boss.Projectiles
             Move();
         }
 
-        public void Move()
+        private void Move()
         {
             transform.Translate(_direction * (_speed * Time.deltaTime));
         }
