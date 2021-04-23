@@ -9,7 +9,8 @@ public class GameAnnouncement : MonoBehaviour
     public TextMeshProUGUI text;
     public GameObject canvas;
 
-
+    public string winMsg;
+    public string loseMsg;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +23,9 @@ public class GameAnnouncement : MonoBehaviour
         if (GameManager.instance.bossDead)
         {
             GameManager.instance.bossDead = false;
-            text.SetText("You Win");
+            GameManager.instance.bossCounter += 1;
+
+            text.SetText(winMsg);
            
             StartCoroutine("loopEnd");
         }
@@ -30,7 +33,7 @@ public class GameAnnouncement : MonoBehaviour
         if (GameManager.instance.playerDead)
         {
             GameManager.instance.playerDead = false;
-            text.SetText("You Lose");
+            text.SetText(loseMsg);
 
             StartCoroutine("loopEnd");
 

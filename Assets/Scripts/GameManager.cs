@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     public bool bossDead = false;
     public bool playerDead = false;
 
+    public int bossCounter = 0;
+
     private void Awake()
     {
         if (instance == null)
