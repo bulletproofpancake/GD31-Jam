@@ -30,6 +30,7 @@ public class PlayerAttack : MonoBehaviour
         if (currentHealth <= 0)
         {
             Destroy(gameObject);
+            GameManager.instance.playerDead = true;
         }
         
         if(timeBtwAttack <= 0)
