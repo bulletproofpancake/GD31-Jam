@@ -4,32 +4,54 @@ using UnityEngine;
 public class ProjectileSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject prefab;
-    [SerializeField] private Transform[] spawnPoints;
+    [SerializeField] private Transform spawnPoint;
     [SerializeField] private float shotInterval;
-    [SerializeField] private bool tracksPlayer;
+    [SerializeField] private bool tracksPlayerVertical, tracksPlayerHorizontal;
     [SerializeField] private float speed;
     
-    public bool isActive;
+    [HideInInspector] public bool isActive;
+    
     private float shotTime;
     private GameObject player;
     private Material material;
+
+    private bool horizontal, vertical;
 
     private void Start()
     {
         material = GetComponent<MeshRenderer>().material;
         player = GameObject.FindWithTag("Player");
         shotTime = shotInterval;
+        if(tracksPlayerVertical)
+        {
+            vertical = true;
+            horizontal = false;
+        }
+        
+        if (tracksPlayerHorizontal)
+        {
+            vertical = false;
+            horizontal = true;
+        }
     }
 
     private void Update()
     {
-        if (tracksPlayer)
+        if (tracksPlayerVertical)
         {
             if (player != null)
             {
                 var playerHeight = new Vector3(transform.position.x, player.transform.position.y);
                 transform.position = Vector3.Lerp(transform.position, playerHeight, Time.deltaTime * speed);
 
+            }
+        }
+        if (tracksPlayerHorizontal)
+        {
+            if (player != null)
+            {
+                var playerWidth = new Vector3(player.transform.position.x, transform.position.y);
+                transform.position = Vector3.Lerp(transform.position, playerWidth, Time.deltaTime * speed);
             }
         }
         if (isActive)
@@ -40,22 +62,32 @@ public class ProjectileSpawner : MonoBehaviour
 
     private void SpawnProjectiles()
     {
-        foreach (var spawnPoint in spawnPoints)
-        {
-            if (shotTime <= 0)
-            {
-                Instantiate(prefab, spawnPoint.position, Quaternion.identity);
-                isActive = false;
-                tracksPlayer = true;
-                shotTime = shotInterval;
-                material.color = Color.white;
-            }
-            else
-            {
-                tracksPlayer = false;
-                material.color = Color.red;
-                shotTime -= Time.deltaTime;
-            }
-        }
+       if (shotTime <= 0)
+       {
+           Instantiate(prefab, spawnPoint.position, Quaternion.identity);
+           isActive = false;
+           if(vertical){
+               tracksPlayerVertical = true;
+           }
+           if (horizontal)
+           {
+               tracksPlayerHorizontal = true;
+           }
+           shotTime = shotInterval;
+           material.color = Color.white;
+       }
+       else
+       {
+           if(vertical){
+               tracksPlayerVertical = false;
+           }
+           if (horizontal)
+           {
+               tracksPlayerHorizontal = false;
+           }
+           material.color = Color.red;
+           shotTime -= Time.deltaTime;
+       }
+        
     }
 }
