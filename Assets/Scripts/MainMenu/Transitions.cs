@@ -11,10 +11,10 @@ public class Transitions : MonoBehaviour
  
     public void LoadScene(string sceneName)
     {
+        Time.timeScale = 1f;
+        PauseMenu.GameisPaused = false;
         //FindObjectOfType<AudioManager>().Play("button");
         StartCoroutine(LoadLevel(sceneName));
-       
-
     }
 
     IEnumerator LoadLevel(string sceneName)

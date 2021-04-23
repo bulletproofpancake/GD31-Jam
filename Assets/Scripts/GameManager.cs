@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,8 +8,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
-    public bool bossDead;
-    public bool playerDead;
+    public bool bossDead = false;
+    public bool playerDead = false;
 
     private void Awake()
     {
@@ -31,12 +32,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (bossDead || playerDead)
-        {
-            bossDead = false;
-            playerDead = false;
-            SceneManager.LoadScene("MainHub");
-        }
+     
     }
 
 

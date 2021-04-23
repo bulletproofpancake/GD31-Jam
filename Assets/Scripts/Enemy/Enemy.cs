@@ -23,6 +23,7 @@ public class Enemy : MonoBehaviour
         {
             Destroy(gameObject);
             GameManager.instance.bossDead = true;
+            
         }
     }
 
