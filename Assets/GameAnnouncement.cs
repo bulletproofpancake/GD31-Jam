@@ -46,6 +46,27 @@ public class GameAnnouncement : MonoBehaviour
         canvas.SetActive(true);
         yield return new WaitForSeconds(3);
         canvas.SetActive(false);
-        SceneManager.LoadScene("MainHub");
+        LoadScene("MainHub");
     }
+
+
+    public Animator animator;
+    public float time;
+
+
+    public void LoadScene(string sceneName)
+    {
+        Time.timeScale = 1f;
+        PauseMenu.GameisPaused = false;
+        //FindObjectOfType<AudioManager>().Play("button");
+        StartCoroutine(LoadLevel(sceneName));
+    }
+
+    IEnumerator LoadLevel(string sceneName)
+    {
+        animator.SetTrigger("End");
+        yield return new WaitForSeconds(time);
+        SceneManager.LoadScene(sceneName);
+    }
+
 }

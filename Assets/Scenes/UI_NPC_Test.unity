@@ -418,6 +418,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a619431683165a9478ef08094032ab0a, type: 3}
+--- !u!95 &206255573 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2515656096495300601, guid: a619431683165a9478ef08094032ab0a, type: 3}
+  m_PrefabInstance: {fileID: 206255572}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &209169833
 GameObject:
   m_ObjectHideFlags: 0
@@ -3669,6 +3674,10 @@ PrefabInstance:
       value: Announcement
       objectReference: {fileID: 0}
     - target: {fileID: 1387518648319061133, guid: 9c9170294c38e734faad2314fa67a000, type: 3}
+      propertyPath: time
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1387518648319061133, guid: 9c9170294c38e734faad2314fa67a000, type: 3}
       propertyPath: winMsg
       value: SUCCESS
       objectReference: {fileID: 0}
@@ -3676,6 +3685,10 @@ PrefabInstance:
       propertyPath: loseMsg
       value: FAILED
       objectReference: {fileID: 0}
+    - target: {fileID: 1387518648319061133, guid: 9c9170294c38e734faad2314fa67a000, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 206255573}
     - target: {fileID: 1387518648319061134, guid: 9c9170294c38e734faad2314fa67a000, type: 3}
       propertyPath: m_RootOrder
       value: 12
