@@ -7,16 +7,16 @@ namespace Boss.Projectiles
     public class Projectile : MonoBehaviour
     {
         public ProjectileData data;
-        private Vector3 _direction;
-        private float _damage, _speed, _lifetime;
+        protected Vector3 _direction;
+        protected float _damage, _speed, _lifetime;
 
-        private void Start()
+        protected virtual void Start()
         {
             LoadData(data);
             Invoke("GetDestroyed", _lifetime);
         }
 
-        private void LoadData(ProjectileData projectileData)
+        protected void LoadData(ProjectileData projectileData)
         {
             _direction = projectileData.SetDirection();
             _damage = projectileData.Damage;
@@ -24,17 +24,17 @@ namespace Boss.Projectiles
             _lifetime = projectileData.Lifetime;
         }
 
-        private void Update()
+        protected virtual void Update()
         {
             Move();
         }
 
-        private void Move()
+        protected void Move()
         {
             transform.Translate(_direction * (_speed * Time.deltaTime));
         }
 
-        private void OnCollisionEnter(Collision other)
+        protected virtual void OnCollisionEnter(Collision other)
         {
             if (other.collider.CompareTag("Player"))
             {
@@ -43,7 +43,16 @@ namespace Boss.Projectiles
             }
         }
 
-        private void GetDestroyed()
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.CompareTag("Player"))
+            {
+                other.gameObject.GetComponent<PlayerAttack>().TakeDamage(_damage);
+                GetDestroyed();
+            }
+        }
+
+        protected virtual void GetDestroyed()
         {
             Destroy(gameObject);
         }
