@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7434516460583055412}
   - component: {fileID: 7434516460583055415}
   - component: {fileID: 7434516460583055417}
-  - component: {fileID: 7875605693031706832}
+  - component: {fileID: -7759126375972039490}
   m_Layer: 0
   m_Name: Geyser
   m_TagString: Untagged
@@ -110,7 +110,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 2a7a2d57354da9340b239e67352a2645, type: 2}
---- !u!54 &7875605693031706832
+--- !u!54 &-7759126375972039490
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -125,4 +125,4 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 122
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0

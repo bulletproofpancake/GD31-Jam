@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Geyser
   m_EditorClassIdentifier: 
   direction: 0
-  damage: 25
+  damage: 10
   speed: 3.5
   lifetime: 5

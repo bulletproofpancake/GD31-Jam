@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Harpoon
   m_EditorClassIdentifier: 
   direction: 2
-  damage: 25
+  damage: 5
   speed: 20
   lifetime: 2
