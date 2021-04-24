@@ -1522,7 +1522,7 @@ MonoBehaviour:
   m_TrackedObjectOffset: {x: 0, y: 0, z: 0}
   m_LookaheadTime: 0.513
   m_LookaheadSmoothing: 10
-  m_LookaheadIgnoreY: 0
+  m_LookaheadIgnoreY: 1
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -2276,6 +2276,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 27673422070396812, guid: 526ac0ade8f1cc843bd42a13a018c560, type: 3}
+      propertyPath: startTimeBtwAttack
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 4546554611509370960, guid: 526ac0ade8f1cc843bd42a13a018c560, type: 3}
       propertyPath: healthbar
       value: 

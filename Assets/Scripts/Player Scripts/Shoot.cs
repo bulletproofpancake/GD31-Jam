@@ -7,12 +7,18 @@ public class Shoot : MonoBehaviour
     public Transform firePoint;
     public GameObject bulletPrefab;
 
-    private void Update()
+    public float fireRate = 1f;
+    private float nextFire = 0;
+
+    private void FixedUpdate()
     {
-        if(Input.GetKeyDown(KeyCode.X))
-        {
+
+        if (Input.GetKeyDown(KeyCode.X) && Time.time > nextFire) 
+           {
+            nextFire = Time.time + fireRate;
             shoot();
-        }
+           }
+
     }
 
     private void shoot()
