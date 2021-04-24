@@ -24,7 +24,7 @@ public class PlayerAttack : MonoBehaviour
         healthbar.SetMaxHealth(maxHealth);
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
 
         if (currentHealth <= 0)
