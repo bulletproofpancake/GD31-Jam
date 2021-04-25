@@ -72,6 +72,7 @@ public class ProjectileSpawner : MonoBehaviour
         }
         if (isActive)
         {
+            
             SpawnProjectiles();
         }
     }
@@ -86,8 +87,10 @@ public class ProjectileSpawner : MonoBehaviour
     {
        if (shotTime <= 0)
        {
-           Instantiate(prefab, spawnPoint.position, prefab.transform.rotation);
-           isActive = false;
+            //FindObjectOfType<Audio>().Play("geyser");
+            Instantiate(prefab, spawnPoint.position, prefab.transform.rotation);
+            
+            isActive = false;
            if(vertical){
                tracksPlayerVertical = true;
            }
