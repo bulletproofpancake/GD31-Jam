@@ -929,6 +929,74 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1001 &350561248
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7306118838568275160, guid: e108e68455584b14a8cd37db78d56e4a, type: 3}
+      propertyPath: m_RootOrder
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 7306118838568275160, guid: e108e68455584b14a8cd37db78d56e4a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 8.67
+      objectReference: {fileID: 0}
+    - target: {fileID: 7306118838568275160, guid: e108e68455584b14a8cd37db78d56e4a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7306118838568275160, guid: e108e68455584b14a8cd37db78d56e4a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7306118838568275160, guid: e108e68455584b14a8cd37db78d56e4a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7306118838568275160, guid: e108e68455584b14a8cd37db78d56e4a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7306118838568275160, guid: e108e68455584b14a8cd37db78d56e4a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7306118838568275160, guid: e108e68455584b14a8cd37db78d56e4a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7306118838568275160, guid: e108e68455584b14a8cd37db78d56e4a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7306118838568275160, guid: e108e68455584b14a8cd37db78d56e4a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7306118838568275160, guid: e108e68455584b14a8cd37db78d56e4a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7306118838568275167, guid: e108e68455584b14a8cd37db78d56e4a, type: 3}
+      propertyPath: m_Name
+      value: HarpoonSpawner
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e108e68455584b14a8cd37db78d56e4a, type: 3}
+--- !u!114 &350561249 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7306118838568275161, guid: e108e68455584b14a8cd37db78d56e4a, type: 3}
+  m_PrefabInstance: {fileID: 350561248}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a91b4df0046c41bd9a0ba6d10647d67d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &404973428
 GameObject:
   m_ObjectHideFlags: 0
@@ -1804,8 +1872,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.13050234, y: 0.21064924, z: 0.13346788}
-  m_Center: {x: 0.00027040025, y: 0.00033245236, z: 0.032476455}
+  m_Size: {x: 0.13050234, y: 0.062426846, z: 0.059053823}
+  m_Center: {x: 0.00027039947, y: 0.074443534, z: -0.004730541}
 --- !u!114 &830505487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1833,7 +1901,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e913d564583d4527b024edbe13cea859, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  harpoonSpawner: {fileID: 0}
+  harpoonSpawner: {fileID: 350561249}
   geyserSpawner: {fileID: 2040257106}
   harpoonRange: 12
   geyserRange: 12
