@@ -980,6 +980,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7306118838568275161, guid: e108e68455584b14a8cd37db78d56e4a, type: 3}
+      propertyPath: prefab
+      value: 
+      objectReference: {fileID: 365953049241276653, guid: 479d3eccb219aaf4480f8b8b5b65c0eb, type: 3}
     - target: {fileID: 7306118838568275167, guid: e108e68455584b14a8cd37db78d56e4a, type: 3}
       propertyPath: m_Name
       value: HarpoonSpawner
@@ -1666,7 +1670,7 @@ MonoBehaviour:
   - target: {fileID: 4546554613107059130}
     weight: 1
     radius: 0
-  - target: {fileID: 0}
+  - target: {fileID: 830505491}
     weight: 1
     radius: 0
 --- !u!4 &622066455
@@ -1677,7 +1681,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 622066453}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.64, z: 0}
+  m_LocalPosition: {x: 5.95, y: 1.5500001, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1872,8 +1876,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.13050234, y: 0.062426846, z: 0.059053823}
-  m_Center: {x: 0.00027039947, y: 0.074443534, z: -0.004730541}
+  m_Size: {x: 0.13050234, y: 0.20549437, z: 0.059053823}
+  m_Center: {x: 0.00027039947, y: 0.0029096329, z: -0.004730541}
 --- !u!114 &830505487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1908,6 +1912,11 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 256
+--- !u!4 &830505491 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ecde89cdc0b8fd34db591d3474e8a876, type: 3}
+  m_PrefabInstance: {fileID: 899254369}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &842809101
 GameObject:
   m_ObjectHideFlags: 0
@@ -2712,7 +2721,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1177492356}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.64, z: -10}
+  m_LocalPosition: {x: 5.95, y: 1.5500001, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -5040,11 +5049,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1936288120024451132, guid: 2af5d5466b92eeb4bb38f7b8779e93fd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 5.95
       objectReference: {fileID: 0}
     - target: {fileID: 1936288120024451132, guid: 2af5d5466b92eeb4bb38f7b8779e93fd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.64
+      value: 1.5500001
       objectReference: {fileID: 0}
     - target: {fileID: 1936288120024451132, guid: 2af5d5466b92eeb4bb38f7b8779e93fd, type: 3}
       propertyPath: m_LocalPosition.z
