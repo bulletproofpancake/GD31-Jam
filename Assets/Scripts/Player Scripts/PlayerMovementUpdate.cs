@@ -71,7 +71,7 @@ public class PlayerMovementUpdate : MonoBehaviour
             Flip();
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKeyDown(KeyCode.C))
         {
 
             StartCoroutine(Dash());
