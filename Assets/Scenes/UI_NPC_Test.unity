@@ -927,7 +927,7 @@ MonoBehaviour:
   m_UpdateMethod: 1
   m_Targets:
   - target: {fileID: 4546554613107059130}
-    weight: 2
+    weight: 1
     radius: 0
   - target: {fileID: 2042855962}
     weight: 1
@@ -940,7 +940,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 622066453}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.673333, y: 0.2733333, z: 0}
+  m_LocalPosition: {x: 6.005, y: 0.7299999, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1355,7 +1355,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1177492356}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.0733333, y: 1.1833334, z: -9.42}
+  m_LocalPosition: {x: 6.005, y: 0.7299999, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1413,7 +1413,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 1
-  m_FollowOffset: {x: -1.6, y: 0.91, z: -9.42}
+  m_FollowOffset: {x: 0, y: 0, z: -10}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -2404,15 +2404,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1936288120024451132, guid: 2af5d5466b92eeb4bb38f7b8779e93fd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.0733333
+      value: 6.005
       objectReference: {fileID: 0}
     - target: {fileID: 1936288120024451132, guid: 2af5d5466b92eeb4bb38f7b8779e93fd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.1833334
+      value: 0.7299999
       objectReference: {fileID: 0}
     - target: {fileID: 1936288120024451132, guid: 2af5d5466b92eeb4bb38f7b8779e93fd, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -9.42
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 1936288120024451132, guid: 2af5d5466b92eeb4bb38f7b8779e93fd, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2449,7 +2449,7 @@ PrefabInstance:
     - target: {fileID: 1936288120024451133, guid: 2af5d5466b92eeb4bb38f7b8779e93fd, type: 3}
       propertyPath: m_LookAt
       value: 
-      objectReference: {fileID: 2042855962}
+      objectReference: {fileID: 0}
     - target: {fileID: 1936288120024451133, guid: 2af5d5466b92eeb4bb38f7b8779e93fd, type: 3}
       propertyPath: m_Lens.FieldOfView
       value: 80
@@ -2703,8 +2703,8 @@ MonoBehaviour:
   gravity: -20
   extraDashValue: 0
   dashEffect: {fileID: 0}
-  DashForce: 50
-  DashTimer: 0.25
+  DashForce: 25
+  DashTimer: 0.075
 --- !u!143 &4546554613107059135
 CharacterController:
   m_ObjectHideFlags: 0

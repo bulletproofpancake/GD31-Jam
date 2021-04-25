@@ -10596,7 +10596,7 @@ MonoBehaviour:
   extraDashValue: 0
   dashEffect: {fileID: 0}
   DashForce: 25
-  DashTimer: 0.25
+  DashTimer: 0.075
 --- !u!143 &4546554613107059135
 CharacterController:
   m_ObjectHideFlags: 0
