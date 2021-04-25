@@ -8,12 +8,13 @@ public class ProjectileSpawner : MonoBehaviour
     [SerializeField] private float shotInterval;
     [SerializeField] private bool tracksPlayerVertical, tracksPlayerHorizontal;
     [SerializeField] private float speed;
-    
+
     [HideInInspector] public bool isActive;
     
     private float shotTime;
     private GameObject player;
     private Material material;
+    public LayerMask playerLayer;
 
     private bool horizontal, vertical;
 
@@ -34,25 +35,40 @@ public class ProjectileSpawner : MonoBehaviour
             horizontal = true;
         }
     }
-
+    private bool isMoving()
+    {
+        var player = Physics.OverlapSphere(transform.position, 1f, playerLayer);
+        foreach (var p in player)
+        {
+            if (p.CompareTag("Player")) return false;
+        }
+        return true;
+    }
     private void Update()
     {
-        if (tracksPlayerVertical)
-        {
-            if (player != null)
+        if(isMoving()){
+            if (tracksPlayerVertical)
             {
-                var playerHeight = new Vector3(transform.position.x, player.transform.position.y);
-                transform.position = Vector3.Lerp(transform.position, playerHeight, Time.deltaTime * speed);
+                if (player != null)
+                {
+                    var playerHeight = new Vector3(transform.position.x, player.transform.position.y);
+                    transform.position = Vector3.Lerp(transform.position, playerHeight, Time.deltaTime * speed);
 
+                }
+            }
+
+            if (tracksPlayerHorizontal)
+            {
+                if (player != null)
+                {
+                    var playerWidth = new Vector3(player.transform.position.x, transform.position.y);
+                    transform.position = Vector3.Lerp(transform.position, playerWidth, Time.deltaTime * speed);
+                }
             }
         }
-        if (tracksPlayerHorizontal)
+        else
         {
-            if (player != null)
-            {
-                var playerWidth = new Vector3(player.transform.position.x, transform.position.y);
-                transform.position = Vector3.Lerp(transform.position, playerWidth, Time.deltaTime * speed);
-            }
+            transform.Translate(Vector3.zero);
         }
         if (isActive)
         {
@@ -60,6 +76,12 @@ public class ProjectileSpawner : MonoBehaviour
         }
     }
 
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, 1f);
+    }
+    
     private void SpawnProjectiles()
     {
        if (shotTime <= 0)

@@ -115,3 +115,6 @@ MonoBehaviour:
   tracksPlayerHorizontal: 0
   speed: 2
   isActive: 0
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 256
