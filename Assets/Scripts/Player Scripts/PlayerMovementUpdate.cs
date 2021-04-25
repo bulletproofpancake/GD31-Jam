@@ -59,7 +59,8 @@ public class PlayerMovementUpdate : MonoBehaviour
 
         controller.Move(dir * Time.deltaTime);
 
-        dash = transform.right * hInput + transform.forward * vInput;
+        //dash = transform.right * hInput + transform.forward * vInput;
+        dash.x = dir.x/speed;
         jump();
 
         if (facingRight == false && hInput > 0)
