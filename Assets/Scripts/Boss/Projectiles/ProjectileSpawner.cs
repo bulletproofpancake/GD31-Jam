@@ -64,7 +64,7 @@ public class ProjectileSpawner : MonoBehaviour
     {
        if (shotTime <= 0)
        {
-           Instantiate(prefab, spawnPoint.position, Quaternion.identity);
+           Instantiate(prefab, spawnPoint.position, prefab.transform.rotation);
            isActive = false;
            if(vertical){
                tracksPlayerVertical = true;

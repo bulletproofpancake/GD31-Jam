@@ -1008,6 +1008,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7306118838568275161, guid: e108e68455584b14a8cd37db78d56e4a, type: 3}
+      propertyPath: prefab
+      value: 
+      objectReference: {fileID: 952578153053145220, guid: 6d01f48d96ff6d84bb40fec4a5e80a73, type: 3}
     - target: {fileID: 7306118838568275167, guid: e108e68455584b14a8cd37db78d56e4a, type: 3}
       propertyPath: m_Name
       value: HarpoonSpawner
@@ -2304,6 +2308,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firePoint: {fileID: 2031712211866897507}
   bulletPrefab: {fileID: 4526851971361608715, guid: 4a4c1330923de8b4e92822a07b41b68e, type: 3}
+  fireRate: 1
 --- !u!1001 &1387518647268849796
 PrefabInstance:
   m_ObjectHideFlags: 0
